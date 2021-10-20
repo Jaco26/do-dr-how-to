@@ -56,5 +56,53 @@ The key fingerprint is:
 SHA256:/hk7MJ5n5aiqdfTVUZr+2Qt+qCiS7BIm5Iv0dxrc3ks user@host
 ```
 
+You now have a public/private SSH key pair but before you can authenticate, you'll need to copy the **public** key to the server to which you wish to connect.
 
+### 2: Copy your public key to the server
 
+_This section assumes that your server is a digital ocean droplet running Ubuntu 20.04 LTS_
+
+#### Using `ssh-copy-id`
+
+This is the easiest way to copy your public key to a server and it's generally included in many OpenSSH packages. It requires password authentication to be enabled on your server.
+
+Run the following command:
+```
+% ssh-copy-id <user>@<host>
+```
+The `<user>` will be the account you want to be able to login to the server with. If you haven't created a non-root user on your server, you'll use `root` as the value.
+
+And the `<host>` will be the IP address of your droplet.
+
+After you run the command, you'll likely see output like this:
+```
+The authenticity of host '203.0.113.1 (203.0.113.1)' can't be established.
+ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
+Are you sure you want to continue connecting (yes/no)?
+```
+Type `yes` and hit `enter`.
+
+You'll see the following output which will include a prompt for the server's password. 
+```
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+<user>@<host>'s password: 
+```
+
+If you get something like the output below instead of a password prompt, you likely just need to [enable SSH password authentication on your server](./ssh-config.md#enable-or-disable-password-authentication).
+```
+<user>@<host> Permission denied (publickey).
+```
+
+If when you successfully provide the server password, you'll see something like:
+```
+Number of key(s) added:        1
+
+Now try logging into the machine, with:   "ssh '<user>@<host>'"
+and check to make sure that only the key(s) you wanted were added.
+```
+You should now be able to SSH into your server!
+
+### 3: Disable SSH password authentication on your server
+
+With an SSH session, follow the steps in [enable password auth](./ssh-config.md#enable-or-disable-password-authentication) but set the `PasswordAuthentication` value as `no`
