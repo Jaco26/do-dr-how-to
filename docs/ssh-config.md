@@ -38,8 +38,8 @@ You will exit `nano` and be back in the regular console interface. Next, restart
 ```
 # sudo systemctl restart ssh
 ```
-Congrats! You have successfully enabled password authentication.
+Congrats! You have successfully enabled (or disabled) password authentication.
 
-This is only a good thing if you need to use `ssh-copy-id` to copy a client's public key to this server.
+You should only rarely need to enable password authentication (_e.g._ if you need to use `ssh-copy-id` to copy a client's public key to this server).
 
-Be sure you follow the steps above to disable password auth when you are done copying keys!
+If you do enable password auth, be sure to disable it again when you're done doing what needed doing :)
