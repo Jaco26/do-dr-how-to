@@ -7,11 +7,15 @@ With a digitalocean droplet, you can launch the recovery console to login as `ro
 ```
 This will load the relevant config file in the `nano` text editor. Use the arrow keys to find the line that says:
 ```
-PasswordAuthentication no
+PasswordAuthentication <yes|no>
 ```
 _You can also use `control + w` to enter "search mode". Type `PasswordAuthentication` and hit enter to go directly to the correct line_
 
-Change that line to look like below:
+To **enable** password auth, set it to:
+```
+PasswordAuthentication yes
+```
+To **disable** password auth, set it to:
 ```
 PasswordAuthentication no
 ```

@@ -105,4 +105,4 @@ You should now be able to SSH into your server!
 
 ### 3: Disable SSH password authentication on your server
 
-With an SSH session, follow the steps in [enable password auth](./ssh-config.md#enable-or-disable-password-authentication) but set the `PasswordAuthentication` value as `no`
+With an SSH session, follow the steps in the [enable or disable password authentication](./ssh-config.md#enable-or-disable-password-authentication) section but set the `PasswordAuthentication` value as `no`
