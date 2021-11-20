@@ -34,7 +34,9 @@ File Name to Write: /etc/ssh/sshd_config
 ```
 Hit `enter` to confirm you want to save without changing the filename.
 
-You will exit `nano` and be back in the regular console interface. Next, restart the SSH service with this command:
+You will exit `nano` and be back in the regular console interface. 
+
+Next, restart the SSH service with this command:
 ```
 # sudo systemctl restart ssh
 ```
