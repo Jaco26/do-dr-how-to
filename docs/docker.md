@@ -53,3 +53,26 @@ Docker should now be installed, the daemon started, and the process enabled to s
 # sudo systemctl status docker
 ```
 The `docker` CLI should now be available. Follow the steps in the next section to use it without `sudo`
+
+## Using `docker` CLI without `sudo`
+
+
+By default, only **root** and user's in the **docker** group can use the `docker` CLI. To avoid periodically needing entering your password to use docker, add your non-root user to the **docker** group (this is also useful for granting `docker` privileges to non-root users _without_ admin privileges).
+
+```
+# sudo usermod -aG docker ${USER}
+```
+_If you're not currently logged in as the user you're adding to the **docker** group, you'll need to substitute `${USER}` with their actual user name._
+
+You'll need to logout and log back in to apply the new group membership. You can do this by exiting your ssh session and then reconnecting with your user. An easier option is to run this:
+```
+# su --login ${USER}
+```
+This command restarts the shell as a login shell with an environment similar to a real login. After entering your password, you can check to see that your user has been added to the **docker** group by running:
+```
+# groups
+```
+You should see output like
+```
+<youruser> sudo docker
+```
