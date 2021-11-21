@@ -1,9 +1,9 @@
 # Initial Server Setup on Ubuntu 20.04
 **_source_**: https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
 
-## Setup a non-root user
+**_prerequisites_**: [connecting with ssh](./ssh)
 
-_For this step, you'll need to be able to [connect to your server using ssh](./ssh.md)_
+## Setup a non-root user
 
 ### What's wrong with `root`?
 

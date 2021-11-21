@@ -2,8 +2,8 @@
 
 This repository contains system admin and other related documentation for hosting a web app on a digital ocean droplet.
 
-### [Connecting with SSH](./docs/ssh.md)
+### [Connecting with SSH](./docs/ssh)
 
-### [Initial Server Setup](./docs/initial-setup.md)
+### [Initial Server Setup](./docs/initial-setup)
 
-### [Installing Docker](./docs/docker.md)
+### [Installing Docker](./docs/docker)
