@@ -1,10 +1,12 @@
-# Install and use docker
+# Install and use `docker` and `docker-compose`
 
-**_source_**: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+**_sources_**: 
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+- https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
 
 **_prerequisites_**: [connecting with ssh](./ssh) and [initial server setup](./initial-setup)
 
-## Installing Docker with APT
+## Install docker
 
 _**APT** is Ubuntu's default package manager. Run `man apt` in your Ubuntu environment (your server) to view the manual page documentation or search duckduckgo to learn more about it_
 
@@ -76,3 +78,35 @@ You should see output like
 ```
 <youruser> sudo docker
 ```
+
+## Install docker-compose
+
+**Complete the steps above**
+
+_Note: The source article for these notes was written to install docker-compse V1. Installing V2 requires different steps. Refer to the [Docker Compose V2 README](https://github.com/docker/compose#about-update-and-backward-compatibility)_
+
+Find the latest version on the docker-compose [releases pages](https://github.com/docker/compose/releases).
+
+At the time of this writing, it's `v2.1.1`.
+
+Download the executable file and save it at `/usr/local/bin/docker-compose` which will make it globally accessible by running `# docker compose`
+```
+# sudo curl -L "https://github.com/docker/compose/releases/download/v2.1.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/libexec/docker/cli-plugins/docker-compose
+```
+_`uname -s` prints the Lynux system kernal name and `uname -m` prints the machine hardware name_
+
+You should now be able to use docker compose by running:
+```
+# docker compose
+```
+_Note: the v2 syntax (`docker compose`) differs from v1 (`docker-compose`)_
+
+If this doesn't produce output that starts like
+```
+Usage:  docker compose [OPTIONS] COMMAND
+...
+```
+You may need to change file permissions to make docker-compose executable with
+```
+# sudo chmod +x /usr/local/bin/docker-compose
+``
