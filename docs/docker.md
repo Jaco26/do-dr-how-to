@@ -4,7 +4,7 @@
 - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
 - https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04
 
-**_prerequisites_**: [connecting with ssh](./ssh) and [initial server setup](./initial-setup)
+**_prerequisites_**: [connecting with ssh](./ssh.md) and [initial server setup](./initial-setup.md)
 
 ## Install docker
 

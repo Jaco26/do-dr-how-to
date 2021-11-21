@@ -1,7 +1,7 @@
 # Initial Server Setup on Ubuntu 20.04
 **_source_**: https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
 
-**_prerequisites_**: [connecting with ssh](./ssh)
+**_prerequisites_**: [connecting with ssh](./ssh.md)
 
 ## Setup a non-root user
 
