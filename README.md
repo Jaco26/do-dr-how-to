@@ -6,4 +6,6 @@ This repository contains system admin and other related documentation for hostin
 
 ### [Initial Server Setup](./docs/initial-setup.md)
 
-### [Installing Docker](./docs/docker.md)
+### [Installing Docker](./docs/docker/install-docker.md)
+
+### [Dockerized Static Website](./docs/docker/nginx-static-website-ssl.md)
