@@ -55,8 +55,8 @@ GIT_DIR=.
 # Save the location we wish to use as our working tree in an environment variable called TARGET
 # Since we are not at the top-level directory of the working tree (we're in a bare repo with no 
 # working tree), you should tell Git where the top-level of the working tree is, with the 
-# --work-tree=<path> option (or GIT_WORK_TREE environment variable). This is where Git will
-# recreate our projects files and folders and where we can execute other scripts if we wish.
+# --work-tree=<path> option. This is where Git will recreate our projects files and folders 
+# and where we can execute other scripts if we wish.
 TARGET=/home/$USER/my-repo-deploy
 
 # Setup a bash "while read" loop to read the arguments passed to this script by Git
