@@ -2,10 +2,18 @@
 
 This repository contains system admin and other related documentation for hosting a web app on a digital ocean droplet.
 
-### [Connecting with SSH](./docs/ssh.md)
+## Setup Your Server
 
-### [Initial Server Setup](./docs/initial-setup.md)
+### [Connecting with SSH](./docs/setup/ssh.md)
 
-### [Installing Docker](./docs/docker/install-docker.md)
+### [Initial Server Setup](./docs/setup/initial-setup.md)
 
-### [Dockerized Static Website](./docs/docker/nginx-static-website-ssl.md)
+### [Installing Docker](./docs/setup/install-docker.md)
+
+
+## Deploy Apps
+
+
+### [Create remote git repo on your server](./docs/deploy/droplet-as-git-remote.md)
+
+### [Dockerized static website with nginx and ssl](./docs/deploy/docker-compose-nginx-ssl-static-site.md)

@@ -15,7 +15,7 @@ _We'll create a user called **charlie**. You can replace **charlie** with whatev
 
 Login as **root** and run:
 ```
-# adduser charlie
+$ adduser charlie
 ```
 Enter a new password and optionally fill in the remaining prompts (just hit `enter` for any prompt you wish to skip).
 
@@ -23,7 +23,7 @@ Enter a new password and optionally fill in the remaining prompts (just hit `ent
 
 Add your new user (**charlie**) to the **sudo** group so that it can execute commands with **root** admin privileges by prepending any command with `sudo`.
 ```
-# usermod -aG sudo charlie
+$ usermod -aG sudo charlie
 ```
 
 ### Grant ssh access to new user with ssh keys
@@ -39,15 +39,16 @@ The `rsync` command gives us a simple way of doing this and will take care neces
 > If you accidentally add a trailing slash to the command, rsync will copy the contents of the root account’s ~/.ssh directory to the sudo user’s home directory instead of copying the entire ~/.ssh directory structure. The files will be in the wrong location and SSH will not be able to find and use them.
 
 ```
-# rsync --archive --chown=charlie:charlie ~/.ssh /home/charlie
+$ rsync --archive --chown=charlie:charlie ~/.ssh /home/charlie
 ```
 It's a good idea to stay logged in as **root** and open another terminal to verify that you can log in with your non-root user. In another terminal window, run:
 ```
-# ssh charlie@<host>
+$ ssh charlie@<host>
 ```
 If you login successfully, verify that your non-root user can execute commands as a `sudo` user:
 ```
-# sudo nano hello.txt // try creating a file with nano
+# try creating a file with nano
+$ sudo nano hello.txt
 ```
 If that works, you can safely exit **root** and use your non-root user from here on out for most server admin tasks!
 
@@ -59,26 +60,26 @@ _For a deeper dive, refer to the [UFW Essentials guide](https://www.digitalocean
 
 Applications on your server that can be accessed via network connections can register their profiles with **UFW**. These profiles allow you to manage them by name with **UFW**. We can see which applications have registered profiles with **UFW** by typing:
 ```
-# ufw app list
+$ ufw app list
 Available applications:
   OpenSSH
 ```
 **UFW** is disabled by default and before we enable it, we need to allow access to **OpenSSH** (or we won't be able to log back in with `ssh` with  **UFW** enabled).
 
 ```
-# ufw allow OpenSSH
+$ ufw allow OpenSSH
 Rules updated
 Rules updated (v6)
 ```
 Turn on **UFW**
 ```
-# ufw enable 
+$ ufw enable 
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
 ```
 Check whether or not **UFW** is active and see **UFW** managed rules:
 ```
-# ufw status 
+$ ufw status 
 Status: active
 
 To                         Action      From
