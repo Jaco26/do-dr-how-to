@@ -43,11 +43,12 @@ The `rsync` command gives us a simple way of doing this and will take care neces
 ```
 It's a good idea to stay logged in as **root** and open another terminal to verify that you can log in with your non-root user. In another terminal window, run:
 ```
-# ssh charlie@<host>
+$ ssh charlie@<host>
 ```
 If you login successfully, verify that your non-root user can execute commands as a `sudo` user:
 ```
-# sudo nano hello.txt // try creating a file with nano
+# try creating a file with nano
+$ sudo nano hello.txt
 ```
 If that works, you can safely exit **root** and use your non-root user from here on out for most server admin tasks!
 
@@ -59,26 +60,26 @@ _For a deeper dive, refer to the [UFW Essentials guide](https://www.digitalocean
 
 Applications on your server that can be accessed via network connections can register their profiles with **UFW**. These profiles allow you to manage them by name with **UFW**. We can see which applications have registered profiles with **UFW** by typing:
 ```
-# ufw app list
+$ sudo ufw app list
 Available applications:
   OpenSSH
 ```
 **UFW** is disabled by default and before we enable it, we need to allow access to **OpenSSH** (or we won't be able to log back in with `ssh` with  **UFW** enabled).
 
 ```
-# ufw allow OpenSSH
+$ sudo ufw allow OpenSSH
 Rules updated
 Rules updated (v6)
 ```
 Turn on **UFW**
 ```
-# ufw enable 
+$ sudo ufw enable 
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
 ```
 Check whether or not **UFW** is active and see **UFW** managed rules:
 ```
-# ufw status 
+$ sudo ufw status 
 Status: active
 
 To                         Action      From
