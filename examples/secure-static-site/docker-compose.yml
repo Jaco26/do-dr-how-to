@@ -1,0 +1,42 @@
+version: '3.9'
+services:
+  webserver:
+    image: nginx
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - web-root:/var/www/html
+      - ./nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - dhparam:/etc/ssl/certs
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/html
+    depends_on:
+      - webserver
+    command: certonly --webroot --webroot-path=/var/www/html --agree-tos --email <your@email.com> --no-eff-email --force-renewal -d <your_domain>.com -d www.<your_domain>.com
+
+
+volumes:
+  certbot-etc:
+  certbot-var:
+    web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/${USER}/static-site-deploy/public/
+      o: bind
+    dhparam:
+      driver: local
+      driver_opts:
+        type: none
+        device: /home/${USER}/static-site-deploy/dhparam/
+        o: bind
